@@ -101,7 +101,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 mb-8 md:mb-0">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">Jadilah Ahli pencoli dana Desain Grafis</h1>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6">Jadilah Ahli pencoli pradana Desain Grafis</h1>
               <p className="text-lg md:text-xl mb-8 text-purple-100">
                 Tingkatkan keterampilan desain grafis Anda dengan kursus-kursus interaktif 
                 dari para profesional industri. Mulai dari pemula hingga tingkat lanjut.
