@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Search } from "lucide-react";
@@ -6,115 +5,95 @@ import { Input } from "@/components/ui/input";
 import CourseCategory from "@/components/CourseCategory";
 import Navbar from "@/components/Navbar";
 import Testimonials from "@/components/Testimonials";
-
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  
-  // Data kursus yang dikelompokkan berdasarkan kategori
-  const courseCategories = [
-    {
-      id: "basics",
-      title: "Dasar-dasar Desain Grafis",
-      description: "Pelajari konsep fundamental desain grafis untuk membangun fondasi yang kuat",
-      courses: [
-        {
-          id: "photoshop-101",
-          title: "Pengantar Adobe Photoshop",
-          description: "Pelajari dasar-dasar Adobe Photoshop, mulai dari antarmuka hingga manipulasi gambar dasar.",
-          image: "https://images.unsplash.com/photo-1587440871875-191322ee64b0?ixlib=rb-4.0.3",
-          level: "Pemula" as "Pemula",
-          duration: "10 jam"
-        },
-        {
-          id: "illustrator-101",
-          title: "Dasar-dasar Adobe Illustrator",
-          description: "Pelajari cara menggunakan Adobe Illustrator untuk membuat gambar vektor dan ilustrasi.",
-          image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3",
-          level: "Pemula" as "Pemula",
-          duration: "8 jam"
-        },
-        {
-          id: "design-principles",
-          title: "Prinsip-prinsip Desain",
-          description: "Memahami prinsip dasar desain seperti kesatuan, keseimbangan, hierarki, dan kontras.",
-          image: "https://images.unsplash.com/photo-1634986666676-ec9f8ec8f221?ixlib=rb-4.0.3",
-          level: "Pemula" as "Pemula",
-          duration: "6 jam"
-        }
-      ]
-    },
-    {
-      id: "intermediate",
-      title: "Desain Grafis Tingkat Menengah",
-      description: "Tingkatkan keterampilan Anda dengan teknik dan konsep desain lanjutan",
-      courses: [
-        {
-          id: "typography",
-          title: "Tipografi Lanjutan",
-          description: "Pelajari seni tipografi dan bagaimana menggunakannya secara efektif dalam desain Anda.",
-          image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3",
-          level: "Menengah" as "Menengah",
-          duration: "7 jam"
-        },
-        {
-          id: "branding-design",
-          title: "Desain Branding",
-          description: "Pelajari cara membuat identitas visual yang kuat untuk brand.",
-          image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3",
-          level: "Menengah" as "Menengah",
-          duration: "12 jam"
-        },
-        {
-          id: "digital-illustration",
-          title: "Ilustrasi Digital",
-          description: "Teknik ilustrasi digital untuk desainer, dari sketsa hingga artwork final.",
-          image: "https://images.unsplash.com/photo-1607799279861-4dd421887fb3?ixlib=rb-4.0.3",
-          level: "Menengah" as "Menengah",
-          duration: "9 jam"
-        }
-      ]
-    },
-    {
-      id: "advanced",
-      title: "Desain Grafis Tingkat Lanjut",
-      description: "Kuasai teknik desain tingkat lanjut dan alat-alat profesional",
-      courses: [
-        {
-          id: "motion-graphics",
-          title: "Motion Graphics",
-          description: "Pelajari prinsip animasi dan buat motion graphics menarik untuk konten digital.",
-          image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3",
-          level: "Lanjutan" as "Lanjutan",
-          duration: "14 jam"
-        },
-        {
-          id: "3d-design",
-          title: "Desain 3D Fundamental",
-          description: "Pelajari dasar-dasar modeling 3D dan integrasi dengan desain grafis 2D.",
-          image: "https://images.unsplash.com/photo-1618005198919-177e9dd3b230?ixlib=rb-4.0.3",
-          level: "Lanjutan" as "Lanjutan",
-          duration: "16 jam"
-        },
-        {
-          id: "ux-design",
-          title: "UX Design untuk Desainer Grafis",
-          description: "Perluas keterampilan Anda ke bidang UX design dengan pendekatan berbasis desain grafis.",
-          image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?ixlib=rb-4.0.3",
-          level: "Lanjutan" as "Lanjutan",
-          duration: "15 jam"
-        }
-      ]
-    }
-  ];
 
+  // Data kursus yang dikelompokkan berdasarkan kategori
+  const courseCategories = [{
+    id: "basics",
+    title: "Dasar-dasar Desain Grafis",
+    description: "Pelajari konsep fundamental desain grafis untuk membangun fondasi yang kuat",
+    courses: [{
+      id: "photoshop-101",
+      title: "Pengantar Adobe Photoshop",
+      description: "Pelajari dasar-dasar Adobe Photoshop, mulai dari antarmuka hingga manipulasi gambar dasar.",
+      image: "https://images.unsplash.com/photo-1587440871875-191322ee64b0?ixlib=rb-4.0.3",
+      level: "Pemula" as "Pemula",
+      duration: "10 jam"
+    }, {
+      id: "illustrator-101",
+      title: "Dasar-dasar Adobe Illustrator",
+      description: "Pelajari cara menggunakan Adobe Illustrator untuk membuat gambar vektor dan ilustrasi.",
+      image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3",
+      level: "Pemula" as "Pemula",
+      duration: "8 jam"
+    }, {
+      id: "design-principles",
+      title: "Prinsip-prinsip Desain",
+      description: "Memahami prinsip dasar desain seperti kesatuan, keseimbangan, hierarki, dan kontras.",
+      image: "https://images.unsplash.com/photo-1634986666676-ec9f8ec8f221?ixlib=rb-4.0.3",
+      level: "Pemula" as "Pemula",
+      duration: "6 jam"
+    }]
+  }, {
+    id: "intermediate",
+    title: "Desain Grafis Tingkat Menengah",
+    description: "Tingkatkan keterampilan Anda dengan teknik dan konsep desain lanjutan",
+    courses: [{
+      id: "typography",
+      title: "Tipografi Lanjutan",
+      description: "Pelajari seni tipografi dan bagaimana menggunakannya secara efektif dalam desain Anda.",
+      image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3",
+      level: "Menengah" as "Menengah",
+      duration: "7 jam"
+    }, {
+      id: "branding-design",
+      title: "Desain Branding",
+      description: "Pelajari cara membuat identitas visual yang kuat untuk brand.",
+      image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3",
+      level: "Menengah" as "Menengah",
+      duration: "12 jam"
+    }, {
+      id: "digital-illustration",
+      title: "Ilustrasi Digital",
+      description: "Teknik ilustrasi digital untuk desainer, dari sketsa hingga artwork final.",
+      image: "https://images.unsplash.com/photo-1607799279861-4dd421887fb3?ixlib=rb-4.0.3",
+      level: "Menengah" as "Menengah",
+      duration: "9 jam"
+    }]
+  }, {
+    id: "advanced",
+    title: "Desain Grafis Tingkat Lanjut",
+    description: "Kuasai teknik desain tingkat lanjut dan alat-alat profesional",
+    courses: [{
+      id: "motion-graphics",
+      title: "Motion Graphics",
+      description: "Pelajari prinsip animasi dan buat motion graphics menarik untuk konten digital.",
+      image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3",
+      level: "Lanjutan" as "Lanjutan",
+      duration: "14 jam"
+    }, {
+      id: "3d-design",
+      title: "Desain 3D Fundamental",
+      description: "Pelajari dasar-dasar modeling 3D dan integrasi dengan desain grafis 2D.",
+      image: "https://images.unsplash.com/photo-1618005198919-177e9dd3b230?ixlib=rb-4.0.3",
+      level: "Lanjutan" as "Lanjutan",
+      duration: "16 jam"
+    }, {
+      id: "ux-design",
+      title: "UX Design untuk Desainer Grafis",
+      description: "Perluas keterampilan Anda ke bidang UX design dengan pendekatan berbasis desain grafis.",
+      image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?ixlib=rb-4.0.3",
+      level: "Lanjutan" as "Lanjutan",
+      duration: "15 jam"
+    }]
+  }];
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     // Search logic would go here
     console.log("Searching for:", searchQuery);
   };
-
-  return (
-    <div className="min-h-screen">
+  return <div className="min-h-screen">
       <Navbar />
       
       {/* Hero Section */}
@@ -122,7 +101,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 mb-8 md:mb-0">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">Jadilah Ahli Desain Grafis</h1>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6">Jadilah Ahli pencoli Desain Grafis</h1>
               <p className="text-lg md:text-xl mb-8 text-purple-100">
                 Tingkatkan keterampilan desain grafis Anda dengan kursus-kursus interaktif 
                 dari para profesional industri. Mulai dari pemula hingga tingkat lanjut.
@@ -137,11 +116,7 @@ const Index = () => {
               </div>
             </div>
             <div className="md:w-1/2 flex justify-center">
-              <img 
-                src="https://images.unsplash.com/photo-1611162616475-46592b321bf6?ixlib=rb-4.0.3" 
-                alt="Designer working" 
-                className="rounded-lg w-full max-w-md shadow-2xl"
-              />
+              <img src="https://images.unsplash.com/photo-1611162616475-46592b321bf6?ixlib=rb-4.0.3" alt="Designer working" className="rounded-lg w-full max-w-md shadow-2xl" />
             </div>
           </div>
         </div>
@@ -153,12 +128,7 @@ const Index = () => {
           <div className="max-w-xl mx-auto">
             <form onSubmit={handleSearch} className="relative">
               <Search className="absolute left-3 top-3 text-gray-400" />
-              <Input
-                placeholder="Cari kursus desain grafis..."
-                className="pl-10 pr-4 py-6 text-base w-full"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
+              <Input placeholder="Cari kursus desain grafis..." className="pl-10 pr-4 py-6 text-base w-full" value={searchQuery} onChange={e => setSearchQuery(e.target.value)} />
               <Button type="submit" className="absolute right-1.5 top-1.5 bg-purple-700 hover:bg-purple-800">
                 Cari
               </Button>
@@ -201,14 +171,7 @@ const Index = () => {
             </p>
           </div>
           
-          {courseCategories.map((category) => (
-            <CourseCategory
-              key={category.id}
-              title={category.title}
-              description={category.description}
-              courses={category.courses}
-            />
-          ))}
+          {courseCategories.map(category => <CourseCategory key={category.id} title={category.title} description={category.description} courses={category.courses} />)}
         </div>
       </section>
 
@@ -276,8 +239,6 @@ const Index = () => {
           </div>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
