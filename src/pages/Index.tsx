@@ -18,7 +18,7 @@ const Index = () => {
           title: "Pengantar Adobe Photoshop",
           description: "Pelajari dasar-dasar Adobe Photoshop, mulai dari antarmuka hingga manipulasi gambar dasar.",
           image: "https://images.unsplash.com/photo-1587440871875-191322ee64b0?ixlib=rb-4.0.3",
-          level: "Pemula",
+          level: "Pemula" as "Pemula",
           duration: "10 jam"
         },
         {
@@ -26,7 +26,7 @@ const Index = () => {
           title: "Dasar-dasar Adobe Illustrator",
           description: "Pelajari cara menggunakan Adobe Illustrator untuk membuat gambar vektor dan ilustrasi.",
           image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3",
-          level: "Pemula",
+          level: "Pemula" as "Pemula",
           duration: "8 jam"
         },
         {
@@ -34,7 +34,7 @@ const Index = () => {
           title: "Prinsip-prinsip Desain",
           description: "Memahami prinsip dasar desain seperti kesatuan, keseimbangan, hierarki, dan kontras.",
           image: "https://images.unsplash.com/photo-1634986666676-ec9f8ec8f221?ixlib=rb-4.0.3",
-          level: "Pemula",
+          level: "Pemula" as "Pemula",
           duration: "6 jam"
         }
       ]
@@ -49,7 +49,7 @@ const Index = () => {
           title: "Tipografi Lanjutan",
           description: "Pelajari seni tipografi dan bagaimana menggunakannya secara efektif dalam desain Anda.",
           image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3",
-          level: "Menengah",
+          level: "Menengah" as "Menengah",
           duration: "7 jam"
         },
         {
@@ -57,7 +57,7 @@ const Index = () => {
           title: "Desain Branding",
           description: "Pelajari cara membuat identitas visual yang kuat untuk brand.",
           image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3",
-          level: "Menengah",
+          level: "Menengah" as "Menengah",
           duration: "12 jam"
         },
         {
@@ -65,7 +65,7 @@ const Index = () => {
           title: "Ilustrasi Digital",
           description: "Teknik ilustrasi digital untuk desainer, dari sketsa hingga artwork final.",
           image: "https://images.unsplash.com/photo-1607799279861-4dd421887fb3?ixlib=rb-4.0.3",
-          level: "Menengah",
+          level: "Menengah" as "Menengah",
           duration: "9 jam"
         }
       ]
