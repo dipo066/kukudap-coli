@@ -19,7 +19,7 @@ export const ShareUrlCard = ({ shareUrl }: ShareUrlCardProps) => {
         setCopied(true);
         toast({
           title: "Link disalin!",
-          description: "Link telah disalin ke clipboard",
+          description: "Link kukudap-coli telah disalin ke clipboard",
         });
         
         // Reset copied state after 3 seconds

@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { CourseHeader } from "./course-detail/CourseHeader";
@@ -11,10 +10,12 @@ const CourseDetail = () => {
   const { id } = useParams();
   const [shareUrl, setShareUrl] = useState("");
 
-  // Generate share URL when component mounts
+  // Generate custom share URL when component mounts
   useEffect(() => {
-    setShareUrl(window.location.href);
-  }, []);
+    const baseUrl = window.location.origin;
+    const customShareUrl = `${baseUrl}/kukudap-coli/${id}`;
+    setShareUrl(customShareUrl);
+  }, [id]);
 
   // Placeholder data - in a real app, you would fetch this based on the ID
   const courseData: CourseData = {
