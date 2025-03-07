@@ -1,15 +1,50 @@
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowLeft, BookOpen, Clock, Play } from "lucide-react";
+import { ArrowLeft, BookOpen, Clock, Play, Share2, Check, Copy } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useToast } from "@/hooks/use-toast";
 
 const CourseDetail = () => {
   const { id } = useParams();
+  const { toast } = useToast();
+  const [copied, setCopied] = useState(false);
+  const [shareUrl, setShareUrl] = useState("");
+
+  // Generate share URL when component mounts
+  useEffect(() => {
+    setShareUrl(window.location.href);
+  }, []);
+
+  // Handle copy link button click
+  const handleCopyLink = () => {
+    navigator.clipboard.writeText(shareUrl)
+      .then(() => {
+        setCopied(true);
+        toast({
+          title: "Link disalin!",
+          description: "Link telah disalin ke clipboard",
+        });
+        
+        // Reset copied state after 3 seconds
+        setTimeout(() => {
+          setCopied(false);
+        }, 3000);
+      })
+      .catch((error) => {
+        toast({
+          title: "Gagal menyalin link",
+          description: "Terjadi kesalahan saat menyalin link",
+          variant: "destructive",
+        });
+        console.error("Error copying link:", error);
+      });
+  };
+
   // Placeholder data - in a real app, you would fetch this based on the ID
   const courseData = {
     title: "Pengantar Adobe Photoshop",
@@ -65,7 +100,29 @@ const CourseDetail = () => {
             </div>
           </div>
           
-          <h1 className="text-3xl font-bold mb-4">{courseData.title}</h1>
+          <div className="flex justify-between items-center mb-4">
+            <h1 className="text-3xl font-bold">{courseData.title}</h1>
+            
+            {/* Share Button */}
+            <Button 
+              variant="outline" 
+              className="flex items-center gap-2" 
+              onClick={handleCopyLink}
+            >
+              {copied ? (
+                <>
+                  <Check className="h-4 w-4" />
+                  Tersalin
+                </>
+              ) : (
+                <>
+                  <Share2 className="h-4 w-4" />
+                  Bagikan
+                </>
+              )}
+            </Button>
+          </div>
+          
           <p className="text-muted-foreground mb-6">{courseData.description}</p>
           
           <div className="flex items-center gap-6 mb-8">
@@ -78,6 +135,22 @@ const CourseDetail = () => {
               <span>{courseData.duration}</span>
             </div>
           </div>
+          
+          {/* Share URL display */}
+          <Card className="mb-6">
+            <CardContent className="py-4 flex items-center justify-between">
+              <div className="w-full overflow-hidden text-ellipsis whitespace-nowrap">
+                {shareUrl}
+              </div>
+              <Button 
+                variant="ghost" 
+                className="ml-2" 
+                onClick={handleCopyLink}
+              >
+                {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+              </Button>
+            </CardContent>
+          </Card>
           
           <Tabs defaultValue="content">
             <TabsList className="mb-6">

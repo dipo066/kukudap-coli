@@ -1,14 +1,36 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Share2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const { toast } = useToast();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleShareWebsite = () => {
+    const websiteUrl = window.location.origin;
+    
+    navigator.clipboard.writeText(websiteUrl)
+      .then(() => {
+        toast({
+          title: "Link disalin!",
+          description: "Link website telah disalin ke clipboard",
+        });
+      })
+      .catch((error) => {
+        toast({
+          title: "Gagal menyalin link",
+          description: "Terjadi kesalahan saat menyalin link",
+          variant: "destructive",
+        });
+        console.error("Error copying website link:", error);
+      });
   };
 
   return (
@@ -28,6 +50,14 @@ const Navbar = () => {
           </div>
 
           <div className="hidden md:flex items-center space-x-4">
+            <Button 
+              variant="ghost" 
+              className="flex items-center gap-2"
+              onClick={handleShareWebsite}
+            >
+              <Share2 className="h-4 w-4" />
+              Bagikan
+            </Button>
             <Button variant="outline" className="border-purple-700 text-purple-700 hover:bg-purple-50">Masuk</Button>
             <Button className="bg-purple-700 hover:bg-purple-800">Daftar</Button>
           </div>
@@ -48,6 +78,15 @@ const Navbar = () => {
               <Link to="/courses" className="text-gray-700 hover:text-purple-700 py-2">Kursus</Link>
               <Link to="/mentors" className="text-gray-700 hover:text-purple-700 py-2">Mentor</Link>
               <Link to="/resources" className="text-gray-700 hover:text-purple-700 py-2">Sumber Belajar</Link>
+              
+              <Button 
+                variant="ghost" 
+                className="flex items-center gap-2 justify-start"
+                onClick={handleShareWebsite}
+              >
+                <Share2 className="h-4 w-4" />
+                Bagikan Website
+              </Button>
               
               <div className="flex space-x-4 pt-3">
                 <Button variant="outline" className="border-purple-700 text-purple-700 hover:bg-purple-50">Masuk</Button>
